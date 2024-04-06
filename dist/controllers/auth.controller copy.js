@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerController = exports.loginController = void 0;
-const getByEmail_service_1 = require("../services/user/getByEmail.service");
+const user_services_1 = require("../services/user.services");
 const jwt_utils_1 = require("../utils/jwt.utils");
 const loginController = async (req, res) => {
     try {
@@ -26,17 +26,17 @@ exports.loginController = loginController;
 const registerController = async (req, res) => {
     try {
         // Check if username already exists
-        const existingUser = await (0, getByEmail_service_1.getUserByUsername)(req.body.username);
+        const existingUser = await (0, user_services_1.getUserByUsername)(req.body.username);
         if (existingUser) {
             return res.status(400).json({ message: 'Username already exists' });
         }
         // Check if email already exists using getUserByEmail
-        const existingEmail = await (0, getByEmail_service_1.getUserByEmail)(req.body.email);
+        const existingEmail = await (0, user_services_1.getUserByEmail)(req.body.email);
         if (existingEmail) {
             return res.status(400).json({ message: 'Email already exists' });
         }
         // If username and email are unique, create a new user
-        const newUser = await (0, getByEmail_service_1.createUser)(req.body);
+        const newUser = await (0, user_services_1.createUser)(req.body);
         // Respond with success message and the new user data
         res.status(201).json({ message: 'User registered successfully', newUser });
     }

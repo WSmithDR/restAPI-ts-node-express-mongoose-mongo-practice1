@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerController = exports.loginController = void 0;
-const getByEmail_service_1 = require("../services/user/getByEmail.service");
-const jwt_utils_1 = require("../utils/jwt.utils");
+const getByEmail_service_1 = require("../../services/user/getByEmail.service");
+const jwt_utils_1 = require("../../utils/jwt.utils");
 const loginController = async (req, res) => {
     try {
         // Extraer email y contraseña del cuerpo de la solicitud

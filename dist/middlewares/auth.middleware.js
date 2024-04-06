@@ -9,11 +9,11 @@ const passport_1 = __importDefault(require("passport"));
 const passport_jwt_1 = require("passport-jwt");
 const passport_local_1 = require("passport-local");
 const user_model_1 = __importDefault(require("../models/user.model"));
-const user_services_1 = require("../services/user.services");
+const getByEmail_service_1 = require("../services/user/getByEmail.service");
 const jwtSecret = 'your_jwt_secret'; // Reemplaza con tu secreto JWT real
 passport_1.default.use(new passport_local_1.Strategy(async (email, password, done) => {
     try {
-        const user = await (0, user_services_1.getUserByEmail)(email);
+        const user = await (0, getByEmail_service_1.getUserByEmail)(email);
         if (!user) {
             return done(null, false, { message: 'Incorrect username' });
         }

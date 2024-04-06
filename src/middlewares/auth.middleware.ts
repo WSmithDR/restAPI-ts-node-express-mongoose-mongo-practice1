@@ -3,7 +3,7 @@ import passport from 'passport';
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
 import { Strategy as LocalStrategy } from 'passport-local';
 import User from '../models/user.model';
-import { getUserByEmail } from '../services/user.services';
+import { getUserByEmail } from '../services/user/getByEmail.service';
 
 const jwtSecret = 'your_jwt_secret'; // Reemplaza con tu secreto JWT real
 

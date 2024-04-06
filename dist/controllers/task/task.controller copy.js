@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTasksByTitleController = exports.getTaskByIdController = exports.getAllTasksController = exports.createTaskController = void 0;
-const getByTitle_service_1 = require("../services/task/getByTitle.service");
+const getByTitle_service_1 = require("../../services/task/getByTitle.service");
 const createTaskController = async (req, res) => {
     try {
         const task = await (0, getByTitle_service_1.createTask)(req.body);

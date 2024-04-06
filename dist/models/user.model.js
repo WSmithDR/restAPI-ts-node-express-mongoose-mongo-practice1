@@ -38,7 +38,13 @@ const UserSchema = new mongoose_1.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    tasks: [
+        {
+            type: mongoose_1.default.Schema.Types.ObjectId,
+            ref: 'Task'
+        }
+    ]
 });
 const User = mongoose_1.default.model('User', UserSchema);
 exports.default = User;

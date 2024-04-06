@@ -3,13 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getUsers = exports.createUser = exports.getUserByEmail = exports.getUserByUsername = void 0;
-const user_model_1 = __importDefault(require("../models/user.model"));
-const bcrypt_utils_1 = require("../utils/bcrypt.utils");
-const getUserByUsername = async (username) => {
-    return await user_model_1.default.findOne({ username });
-};
-exports.getUserByUsername = getUserByUsername;
+exports.getUsers = exports.createUser = exports.getUserByEmail = void 0;
+const user_model_1 = __importDefault(require("../../models/user.model"));
+const bcrypt_utils_1 = require("../../utils/bcrypt.utils");
 const getUserByEmail = async (email) => {
     return await user_model_1.default.findOne({ email });
 };
