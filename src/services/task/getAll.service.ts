@@ -2,10 +2,18 @@ import ITask from "../../interfaces/task.interface";
 import Task from "../../models/task.model";
 
 
-export const getAllTasks = async (page: number = 1, limit: number = 10): Promise<{ tasks: ITask[], total: number }> => {
-  const total = await Task.countDocuments();
-  const tasks = await Task.find()
-                          .skip((page - 1) * limit)
-                          .limit(limit);
-  return { tasks, total };
+export const getAllTasks = async (page: number, limit: number): Promise<{ tasks: ITask[], total: number }> => {
+  try {
+    const tasks = await Task.find({})
+      .populate('createdBy') // Poblar la referencia al usuario
+      .skip((page - 1) * limit)
+      .limit(limit)
+      .exec();
+
+    const total = await Task.countDocuments();
+
+    return { tasks, total };
+  } catch (error) {
+    throw new Error('Error fetching tasks');
+  }
 };

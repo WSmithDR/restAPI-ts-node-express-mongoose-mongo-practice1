@@ -9,6 +9,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const env = {
     port: parseInt(process.env.PORT || '3000', 10),
-    mongoDB: process.env.MONGO_DB || ""
+    mongoDB: process.env.MONGO_DB || "",
+    jwtSecret: process.env.JWT_SECRET || 'your_jwt_secret'
 };
 exports.default = env;

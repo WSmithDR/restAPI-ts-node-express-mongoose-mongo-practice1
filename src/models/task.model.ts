@@ -1,9 +1,7 @@
-// Import necessary modules
+// Importa los módulos necesarios
 import mongoose, { Schema } from 'mongoose';
 import ITask from '../interfaces/task.interface';
 
-
-// Define the mongoose schema for the task
 const TaskSchema: Schema = new Schema({
   title: {
     type: String,
@@ -26,8 +24,12 @@ const TaskSchema: Schema = new Schema({
     type: Date,
     default: Date.now,
   },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Referencia al modelo de usuario
+    required: true,
+  },
 });
 
-// Create and export the Task model
 const Task = mongoose.model<ITask>('Task', TaskSchema);
 export default Task;

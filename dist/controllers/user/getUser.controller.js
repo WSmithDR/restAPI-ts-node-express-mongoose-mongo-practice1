@@ -7,7 +7,7 @@ const getUsersController = async (_req, res) => {
         // Call the getUsers service function to fetch users
         const users = await (0, services_1.getUsers)();
         // Send the users as a response
-        res.status(200).json(users);
+        return res.status(200).json(users);
     }
     catch (error) {
         // Handle any errors

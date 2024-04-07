@@ -1,4 +1,4 @@
-import { Email, Password, Username } from './../../types/auth.types.d';
+import { Email, Password, Token, Username } from './../../types/auth.types.d';
 
 
 export interface IUser extends Document {
@@ -7,5 +7,9 @@ export interface IUser extends Document {
   email: Email
 }
 
-export interface IloggedUser extends Omit<IUser,'username'>{}
+export interface IlogInUser2 extends Omit<IUser,'username'>{}
+
+export interface IloggedUser extends IUser{
+  token: Token
+}
 

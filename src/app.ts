@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { authenticateMiddleware } from './middlewares/requireAuth.middleware';
 import authRoutes from './routes/auth.routes';
 import taskRoutes from './routes/task.routes';
 
@@ -12,7 +13,7 @@ app.get('/', (_req: Request, res: Response) => {
 });
 
 
-app.use('/tasks', taskRoutes)
+app.use('/tasks', authenticateMiddleware, taskRoutes)
 app.use('/auth', authRoutes)
 
 export default app;

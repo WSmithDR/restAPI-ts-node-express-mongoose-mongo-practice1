@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { generateToken } from "../../utils/jwt.utils";
+import { generateToken } from '../../utils/generateToken.util';
+
 
 export const loginController = async (req: Request, res: Response): Promise<any> => {
   try {
@@ -13,7 +14,7 @@ export const loginController = async (req: Request, res: Response): Promise<any>
 
     // Attempt to generate an authentication token with email and password
     const token = generateToken(email);
-
+    
     // If the token is successfully generated, respond with the token
     return res.status(200).json({ token });
   } catch (error) {

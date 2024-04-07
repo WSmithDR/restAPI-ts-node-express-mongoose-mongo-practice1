@@ -23,9 +23,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Import necessary modules
+// Importa los módulos necesarios
 const mongoose_1 = __importStar(require("mongoose"));
-// Define the mongoose schema for the task
 const TaskSchema = new mongoose_1.Schema({
     title: {
         type: String,
@@ -48,7 +47,11 @@ const TaskSchema = new mongoose_1.Schema({
         type: Date,
         default: Date.now,
     },
+    createdBy: {
+        type: mongoose_1.default.Schema.Types.ObjectId,
+        ref: 'User', // Referencia al modelo de usuario
+        required: true,
+    },
 });
-// Create and export the Task model
 const Task = mongoose_1.default.model('Task', TaskSchema);
 exports.default = Task;

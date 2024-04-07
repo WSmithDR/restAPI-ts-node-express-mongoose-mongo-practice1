@@ -1,7 +1,7 @@
 
 import { IUser } from "../../interfaces/user.interface";
 import User from "../../models/user.model";
-import { hashPassword } from "../../utils/bcrypt.utils";
+import { hashPassword } from "../../utils/hashPassword.util";
 
 export const createUser = async ({ email, username, password }: IUser): Promise<IUser | void> => {
   // Hash password

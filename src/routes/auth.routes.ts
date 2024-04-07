@@ -1,6 +1,7 @@
 import express from 'express';
-import { loginController, registerController } from '../controllers';
+import { registerController } from '../controllers';
 import { authenticateJwt } from '../middlewares/auth.middleware';
+import { loginController } from './../controllers/auth/login.controller';
 
 const authRoutes = express.Router();
 

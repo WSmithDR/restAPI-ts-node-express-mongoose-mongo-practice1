@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { Email } from '../../types/auth.types';
+import env from '../config/env';
 
-const jwtSecret = 'your_jwt_secret';
+const jwtSecret = env.jwtSecret
 
 export const generateToken = (email: Email): string => {
   const payload = {

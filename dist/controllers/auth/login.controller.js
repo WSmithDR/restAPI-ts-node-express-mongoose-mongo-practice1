@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginController = void 0;
-const jwt_utils_1 = require("../../utils/jwt.utils");
+const generateToken_util_1 = require("../../utils/generateToken.util");
 const loginController = async (req, res) => {
     try {
         // Extraer email y contraseña del cuerpo de la solicitud
@@ -11,7 +11,7 @@ const loginController = async (req, res) => {
             return res.status(400).json({ message: 'Email and password are required!' });
         }
         // Attempt to generate an authentication token with email and password
-        const token = (0, jwt_utils_1.generateToken)(email);
+        const token = (0, generateToken_util_1.generateToken)(email);
         // If the token is successfully generated, respond with the token
         return res.status(200).json({ token });
     }
